@@ -2,6 +2,35 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
+def extract_event_urls(url):
+    res = requests.get(url)
+    
+    if res.status_code == 200:
+        soup = BeautifulSoup(res.text, 'html.parser')
+
+        selector = "div.search-result-preview > div > h3 > a"
+        a_eles = soup.select(selector)
+        event_urls = [x['href'] for x in a_eles]
+        return event_urls
+    else:
+        print(f"Failed to retrieve the page. Status code: {res.status_code}")
+        return []
+
+def scrape_event_urls(base_url):
+    all_event_urls = []
+    page_num = 1
+
+    while True:
+        page_url = f"{base_url}/page/{page_num}"
+        event_urls = extract_event_urls(page_url)
+
+        if not event_urls:
+            break
+
+        all_event_urls.extend(event_urls)
+        page_num += 1
+
+    return all_event_urls
 
 def extract_event_details(event_url):
     res = requests.get(event_url)
@@ -20,6 +49,7 @@ def extract_event_details(event_url):
     else:
         print(f"Failed to retrieve the page. Status code: {res.status_code}")
         return None
+
 
 def scrape_and_save_event_details(event_urls):
     event_details_list = []

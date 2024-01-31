@@ -7,6 +7,7 @@ This is a real_time app website
 - `requirements.txt`: Required repositories to run the program
 - `hello.py`: Print hello manually or by time triger
 - `webscraper.py`: A webscraper from lab2
+- `regular_expression.ipynb`: HW3 - Regex
 
 ## Installation
 - pip install -r requirements.txt
