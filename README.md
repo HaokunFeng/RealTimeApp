@@ -5,8 +5,8 @@ This is a real_time app website
 - `app.py`: The main application
 - `README.md`: Introduction to the repository
 - `requirements.txt`: Required repositories to run the program
-- `hello.py`: print hello manually or by time triger
-- 
+- `hello.py`: Print hello manually or by time triger
+- `webscraper.py`: A webscraper from lab2
 
 ## Installation
 - pip install -r requirements.txt
