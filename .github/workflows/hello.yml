@@ -1,0 +1,22 @@
+name: Hello Workflow
+
+on:
+    schedule:
+      - cron: '*/30 * * * *' # Schedule to run every 30 minutes
+    workflow_dispatch: # Manual trigger
+  
+jobs:
+    run-hello:
+      runs-on: ubuntu-latest
+  
+      steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+  
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+  
+      - name: Run hello.py
+        run: python hello.py
