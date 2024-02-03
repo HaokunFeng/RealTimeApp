@@ -14,4 +14,4 @@ This is a real_time app website
 
 ## How to run
 - streamlit run app.py
-- Or you could check the to_do website directly by the following url: haokunfeng-todoapp.azurewebsites.net
+- Or you could check the to_do website directly by the following url: realtimeapplication.azurewebsites.net
